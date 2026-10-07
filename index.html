@@ -4,9 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>i-SERVICES GROUPE</title>
+<meta name="description" content="i-SERVICES GROUPE - Solutions électriques professionnelles, dépannage, maintenance, rénovation, solaire et sécurité.">
+
+<title>i-SERVICES GROUPE | Excellence électrique</title>
 
 <style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --orange:#f28a00;
+    --orange-light:#ffad32;
+    --black:#0b0b0b;
+    --black-soft:#151515;
+    --white:#ffffff;
+    --light:#f7f7f7;
+    --grey:#707070;
+    --border:#171717;
+    --shadow:0 15px 45px rgba(0,0,0,.10);
+}
 
 /* =========================================================
    BASE
@@ -20,66 +38,66 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top:120px;
+    scroll-padding-top:125px;
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#fff;
-    color:#161616;
-    line-height:1.6;
+    color:var(--black);
+    line-height:1.65;
+}
+
+a{
+    -webkit-tap-highlight-color:transparent;
 }
 
 /* =========================================================
-   COULEURS
-========================================================= */
-
-:root{
-    --orange:#f28c00;
-    --orange-dark:#d87500;
-    --black:#111111;
-    --white:#ffffff;
-    --light:#f7f7f7;
-    --border:#111111;
-}
-
-/* =========================================================
-   HEADER / MENU
+   HEADER PREMIUM
 ========================================================= */
 
 header{
-    background:#fff;
-    color:var(--black);
-    padding:14px 12px;
     position:sticky;
     top:0;
     z-index:1000;
-    box-shadow:0 3px 18px rgba(0,0,0,.12);
-    border-bottom:3px solid var(--black);
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid #ddd;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+    padding:14px 12px 12px;
 }
 
 .logo{
     text-align:center;
     font-size:25px;
-    font-weight:800;
-    letter-spacing:1px;
-    margin-bottom:12px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    color:var(--black);
 }
 
 .logo span{
     color:var(--orange);
 }
 
-/* Barre de navigation type application */
+.logo-line{
+    width:55px;
+    height:3px;
+    background:var(--orange);
+    margin:7px auto 11px;
+    border-radius:10px;
+}
+
+/* =========================================================
+   MENU
+========================================================= */
 
 nav{
     display:flex;
-    justify-content:center;
     align-items:center;
-    gap:7px;
+    justify-content:center;
+    gap:8px;
     overflow-x:auto;
-    flex-wrap:nowrap;
-    padding:4px 2px 6px;
+    padding:3px 2px 5px;
     scrollbar-width:none;
 }
 
@@ -89,100 +107,76 @@ nav::-webkit-scrollbar{
 
 nav a{
     flex:0 0 auto;
-    color:var(--black);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    padding:8px 13px;
     background:#fff;
-    text-decoration:none;
-    padding:9px 13px;
-    border:2px solid var(--black);
+    color:var(--black);
+    border:1.8px solid var(--black);
     border-radius:8px;
-    font-size:13px;
-    font-weight:700;
-    white-space:nowrap;
-    transition:.2s ease;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.2px;
     box-shadow:3px 3px 0 var(--orange);
+    transition:.2s ease;
 }
 
 nav a:hover,
 nav a:active{
-    background:var(--orange);
-    color:var(--black);
-    transform:translateY(-2px);
-    box-shadow:2px 2px 0 var(--black);
+    background:var(--black);
+    color:#fff;
+    transform:translate(-2px,-2px);
+    box-shadow:4px 4px 0 var(--orange);
 }
 
 /* =========================================================
    BOUTONS
 ========================================================= */
 
-.btn,
-.upload-btn{
+.btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:8px;
-    padding:13px 20px;
+    min-height:48px;
+    padding:12px 20px;
     margin:5px;
+    border:2px solid var(--black);
     border-radius:8px;
     text-decoration:none;
-    font-weight:800;
-    cursor:pointer;
-    border:2px solid var(--black);
+    font-weight:900;
+    font-size:14px;
     box-shadow:4px 4px 0 var(--orange);
     transition:.2s ease;
+    cursor:pointer;
 }
 
-.btn:hover,
-.upload-btn:hover{
+.btn:hover{
     transform:translate(-2px,-2px);
     box-shadow:6px 6px 0 var(--black);
 }
 
-.btn:active,
-.upload-btn:active{
+.btn:active{
     transform:translate(2px,2px);
     box-shadow:1px 1px 0 var(--orange);
 }
 
-.btn-gold{
+.btn-orange{
     background:var(--orange);
     color:var(--black);
 }
 
-.btn-whatsapp{
+.btn-white{
     background:#fff;
     color:var(--black);
 }
 
-.btn-whatsapp:hover{
-    background:var(--orange);
-}
-
-/* =========================================================
-   SVG
-========================================================= */
-
-.icon-svg{
-    width:38px;
-    height:38px;
-    margin-bottom:12px;
-    fill:none;
-    stroke:var(--orange);
-    stroke-width:2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-}
-
-.btn .icon-svg,
-.whatsapp-svg{
-    width:22px;
-    height:22px;
-    margin:0;
-}
-
-.whatsapp-svg{
-    fill:none;
-    stroke:currentColor;
-    stroke-width:2;
+.btn-black{
+    background:var(--black);
+    color:#fff;
 }
 
 /* =========================================================
@@ -190,28 +184,55 @@ nav a:active{
 ========================================================= */
 
 .hero{
-    min-height:560px;
+    min-height:680px;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:50px 20px;
+    padding:80px 20px;
+    position:relative;
     background:
-    linear-gradient(rgba(0,0,0,.68),rgba(0,0,0,.68)),
-    url("i-SERVICES 20260712_234352.jpg");
+        linear-gradient(135deg,rgba(0,0,0,.88),rgba(0,0,0,.57)),
+        url("i-SERVICES 20260712_234352.jpg");
     background-size:cover;
     background-position:center;
 }
 
 .hero-content{
-    max-width:850px;
+    max-width:900px;
     color:#fff;
+    animation:heroAppear 1s ease;
+}
+
+@keyframes heroAppear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-badge{
+    display:inline-block;
+    border:1px solid var(--orange);
+    color:var(--orange-light);
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    margin-bottom:22px;
+    background:rgba(0,0,0,.35);
 }
 
 .hero h1{
-    font-size:38px;
-    margin-bottom:20px;
-    line-height:1.2;
+    font-size:46px;
+    line-height:1.12;
+    margin-bottom:22px;
+    letter-spacing:-1px;
 }
 
 .hero h1 span{
@@ -219,9 +240,16 @@ nav a:active{
 }
 
 .hero p{
-    font-size:19px;
-    line-height:1.7;
-    margin-bottom:30px;
+    max-width:750px;
+    margin:0 auto 30px;
+    color:#eee;
+    font-size:18px;
+}
+
+.hero-actions{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
 }
 
 /* =========================================================
@@ -229,43 +257,63 @@ nav a:active{
 ========================================================= */
 
 section{
-    padding:60px 18px;
+    padding:80px 18px;
 }
 
 .container{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:40px;
+    margin-bottom:50px;
 }
 
-.section-title h2,
-.section-title h3{
-    font-size:30px;
-    margin-bottom:10px;
+.section-title .mini{
+    color:var(--orange);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+
+.section-title h2{
+    font-size:34px;
+    line-height:1.2;
+    margin-bottom:12px;
 }
 
 .section-title p{
-    color:#666;
+    color:var(--grey);
 }
 
 /* =========================================================
-   À PROPOS
+   ABOUT
 ========================================================= */
 
 .about{
     background:#fff;
 }
 
-.about-text{
-    max-width:850px;
+.about-box{
+    max-width:900px;
     margin:auto;
+    padding:40px;
+    border:1px solid #ddd;
+    border-left:5px solid var(--orange);
+    background:#fff;
+    box-shadow:var(--shadow);
+}
+
+.about-text{
     text-align:center;
-    line-height:1.8;
     font-size:17px;
+}
+
+.about-text p + p{
+    margin-top:22px;
 }
 
 /* =========================================================
@@ -278,31 +326,56 @@ section{
 
 .services-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
+    gap:22px;
 }
 
 .service{
     background:#fff;
-    padding:28px 22px;
+    padding:30px 23px;
+    border:1px solid #ddd;
+    border-top:3px solid var(--black);
     border-radius:10px;
+    box-shadow:7px 7px 0 var(--orange);
+    transition:.25s ease;
     text-align:center;
-    border:2px solid var(--black);
-    box-shadow:5px 5px 0 var(--orange);
-    transition:.2s ease;
 }
 
 .service:hover{
-    transform:translateY(-4px);
-    box-shadow:7px 7px 0 var(--black);
+    transform:translateY(-6px);
+    box-shadow:9px 9px 0 var(--black);
+}
+
+.service-icon{
+    width:55px;
+    height:55px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:2px solid var(--black);
+    border-radius:50%;
+    color:var(--orange);
+}
+
+.service-icon svg{
+    width:28px;
+    height:28px;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
 .service h3{
-    margin-bottom:8px;
+    font-size:18px;
+    margin-bottom:9px;
 }
 
-.service .icon{
-    margin-bottom:5px;
+.service p{
+    color:#666;
+    font-size:14px;
 }
 
 /* =========================================================
@@ -319,8 +392,26 @@ section{
 }
 
 .upload-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:48px;
+    padding:12px 20px;
     background:var(--orange);
     color:var(--black);
+    border:2px solid var(--black);
+    border-radius:8px;
+    box-shadow:4px 4px 0 var(--black);
+    font-size:14px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.upload-btn:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 var(--orange);
 }
 
 input[type="file"]{
@@ -329,33 +420,61 @@ input[type="file"]{
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
 }
 
+/* Cartes photos */
+
 .gallery-item{
+    position:relative;
     background:#111;
+    border:2px solid var(--black);
     border-radius:10px;
     overflow:hidden;
-    border:3px solid var(--black);
-    box-shadow:5px 5px 0 var(--orange);
+    box-shadow:6px 6px 0 var(--orange);
+    transition:.25s ease;
+}
+
+.gallery-item:hover{
+    transform:translateY(-5px);
+    box-shadow:8px 8px 0 var(--black);
 }
 
 .gallery-item img,
 .gallery-item video{
     width:100%;
+    height:260px;
     display:block;
-    max-height:350px;
     object-fit:cover;
 }
 
-.empty{
-    text-align:center;
-    padding:35px;
-    color:#777;
-    border:2px dashed var(--black);
-    border-radius:10px;
+.gallery-label{
+    padding:11px 13px;
+    background:#111;
+    color:#fff;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.github-badge{
+    display:inline-block;
+    margin:0 auto 25px;
+    padding:7px 13px;
+    border:1px solid #ccc;
+    border-radius:30px;
+    color:#555;
+    font-size:12px;
     background:#fafafa;
+}
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:45px 20px;
+    border:2px dashed #bbb;
+    border-radius:10px;
+    color:#777;
 }
 
 /* =========================================================
@@ -363,29 +482,38 @@ input[type="file"]{
 ========================================================= */
 
 .interventions{
-    background:#111;
+    background:var(--black);
     color:#fff;
 }
 
-.intervention-grid,
-.CE{
+.interventions .section-title p{
+    color:#aaa;
+}
+
+.intervention-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:22px;
 }
 
 .intervention{
-    border:2px solid var(--orange);
-    padding:25px;
+    padding:30px 22px;
+    background:#151515;
+    border:1px solid #333;
+    border-bottom:3px solid var(--orange);
     border-radius:10px;
     text-align:center;
-    background:#171717;
-    box-shadow:4px 4px 0 #fff;
+    box-shadow:5px 5px 0 #fff;
 }
 
-.intervention h3,
-.intervention h2{
-    margin-bottom:10px;
+.intervention h3{
+    color:#fff;
+    margin-bottom:12px;
+}
+
+.intervention p{
+    color:#bbb;
+    margin-bottom:12px;
 }
 
 /* =========================================================
@@ -394,31 +522,23 @@ input[type="file"]{
 
 .contact{
     background:var(--orange);
-    text-align:center;
     color:var(--black);
+    text-align:center;
 }
 
 .contact h2{
+    font-size:34px;
     margin-bottom:15px;
 }
 
 .contact p{
-    margin:8px;
+    margin:7px;
     font-size:17px;
+    font-weight:600;
 }
 
 .contact-buttons{
-    margin-top:20px;
-}
-
-.contact-buttons .btn{
-    background:#fff;
-    color:#111;
-}
-
-.contact-buttons .btn:hover{
-    background:#111;
-    color:#fff;
+    margin-top:25px;
 }
 
 /* =========================================================
@@ -426,28 +546,44 @@ input[type="file"]{
 ========================================================= */
 
 footer{
-    background:#111;
+    background:#080808;
     color:#fff;
     text-align:center;
-    padding:28px 15px;
-    line-height:1.8;
+    padding:35px 15px;
     border-top:4px solid var(--orange);
 }
 
 footer strong{
     color:var(--orange);
-    font-size:18px;
+    font-size:19px;
 }
 
 footer address{
     font-style:normal;
-    font-size:13px;
-    color:#ccc;
+    color:#aaa;
+    font-size:12px;
+    max-width:700px;
+    margin:12px auto;
+}
+
+.footer-slogan{
+    color:#ddd;
+    margin:12px 0;
 }
 
 /* =========================================================
-   WHATSAPP FLOTTANT
+   WHATSAPP
 ========================================================= */
+
+.whatsapp-svg{
+    width:27px;
+    height:27px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
 
 .whatsapp-floating{
     position:fixed;
@@ -455,43 +591,43 @@ footer address{
     bottom:18px;
     width:62px;
     height:62px;
-    background:#fff;
-    color:#111;
-    border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-decoration:none;
+    background:#fff;
+    color:#111;
     border:3px solid #111;
+    border-radius:50%;
     box-shadow:5px 5px 0 var(--orange);
+    text-decoration:none;
     z-index:2000;
 }
 
-/* Animation : mouvement rapide puis pause */
+/* mouvement rapide + pause */
 
-@keyframes whatsappMove{
+@keyframes whatsappMotion{
 
     0%{
         transform:translateY(0);
     }
 
-    5%{
-        transform:translateY(-12px);
+    3%{
+        transform:translateY(-13px);
     }
 
-    10%{
-        transform:translateY(10px);
+    6%{
+        transform:translateY(11px);
     }
 
-    15%{
+    9%{
         transform:translateY(-9px);
     }
 
-    20%{
+    12%{
         transform:translateY(7px);
     }
 
-    25%{
+    15%{
         transform:translateY(0);
     }
 
@@ -501,17 +637,17 @@ footer address{
 }
 
 .whatsapp-floating{
-    animation:whatsappMove 6s ease-in-out infinite;
+    animation:whatsappMotion 6s infinite ease-in-out;
 }
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     header{
-        padding:12px 8px;
+        padding:12px 7px;
     }
 
     .logo{
@@ -523,45 +659,62 @@ footer address{
     }
 
     nav a{
-        font-size:12px;
+        font-size:11px;
         padding:8px 11px;
     }
 
     .hero{
-        min-height:520px;
-        padding:40px 15px;
+        min-height:610px;
+        padding:60px 17px;
     }
 
     .hero h1{
-        font-size:29px;
+        font-size:31px;
     }
 
     .hero p{
         font-size:16px;
     }
 
-    section{
-        padding:45px 15px;
+    .hero-actions{
+        flex-direction:column;
+        align-items:center;
     }
 
-    .section-title h2,
-    .section-title h3{
-        font-size:25px;
+    .hero-actions .btn{
+        width:100%;
+        max-width:340px;
+    }
+
+    section{
+        padding:60px 15px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .about-box{
+        padding:25px 20px;
     }
 
     .btn,
     .upload-btn{
         width:calc(100% - 10px);
-        max-width:340px;
+        max-width:350px;
+    }
+
+    .gallery-item img,
+    .gallery-item video{
+        height:230px;
     }
 
     .whatsapp-floating{
         width:58px;
         height:58px;
-        right:15px;
-        bottom:15px;
+        right:14px;
+        bottom:14px;
     }
-
 }
 
 </style>
@@ -569,71 +722,93 @@ footer address{
 
 <body>
 
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header>
 
 <div class="logo">
-i-<span>SERVICES GROUPE</span>
+    i-<span>SERVICES GROUPE</span>
 </div>
 
+<div class="logo-line"></div>
+
 <nav>
-<a href="#accueil">Accueil</a>
-<a href="#apropos">À propos</a>
-<a href="#services">Services</a>
-<a href="#photos">Photos</a>
-<a href="#videos">Vidéos</a>
-<a href="#interventions">Interventions</a>
-<a href="#contact">Contactez-nous</a>
+    <a href="#accueil">Accueil</a>
+    <a href="#apropos">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#photos">Photos</a>
+    <a href="#videos">Vidéos</a>
+    <a href="#interventions">Interventions</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 </header>
 
 
-<!-- ACCUEIL -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero" id="accueil">
 
 <div class="hero-content">
 
+<div class="hero-badge">
+    SOLUTIONS ÉLECTRIQUES PROFESSIONNELLES
+</div>
+
 <h1>
-BIENVENUE SUR LE SITE OFFICIEL DE
-<span>i-SERVICES GROUPE</span>
+    BIENVENUE SUR LE SITE OFFICIEL DE
+    <span>i-SERVICES GROUPE</span>
 </h1>
 
 <p>
-Ici, nous vous présentons nos réalisations,
-nos interventions et le travail de nos différents agents.
+    Nous présentons nos réalisations, nos interventions
+    et le savoir-faire de nos différents agents.
 </p>
 
-<a href="#photos" class="btn btn-gold">
-Découvrez nos réalisations
+<div class="hero-actions">
+
+<a href="#photos" class="btn btn-orange">
+    DÉCOUVRIR NOS RÉALISATIONS
 </a>
 
 <a href="https://wa.me/243900051039"
-class="btn btn-whatsapp">
+   class="btn btn-white">
 
-<svg class="whatsapp-svg" viewBox="0 0 24 24" aria-hidden="true">
+<svg class="whatsapp-svg" viewBox="0 0 24 24">
 <path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z"/>
 <path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
 </svg>
 
-Nous contacter
+NOUS CONTACTER
+
 </a>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- À PROPOS -->
+<!-- =========================================================
+     À PROPOS
+========================================================= -->
 
 <section class="about" id="apropos">
 
 <div class="container">
 
 <div class="section-title">
+<div class="mini">Notre identité</div>
 <h2>À PROPOS DE NOUS</h2>
 <p>Professionnalisme • Qualité • Collaboration</p>
 </div>
+
+<div class="about-box">
 
 <div class="about-text">
 
@@ -642,20 +817,18 @@ Nous contacter
 spécialisé dans les services électriques.
 </p>
 
-<br>
-
 <p>
-Notre objectif est de proposer des interventions ELECTRIQUE,
+Notre objectif est de proposer des interventions électriques,
 des solutions adaptées aux besoins de nos clients et un travail
 réalisé avec professionnalisme.
 </p>
 
-<br>
-
 <p>
-Nous intervenons auprès des particuliers,
-organisations et partenaires dans le domaine ELECTRIQUE.
+Nous intervenons auprès des particuliers, organisations
+et partenaires dans le domaine électrique.
 </p>
+
+</div>
 
 </div>
 
@@ -664,144 +837,146 @@ organisations et partenaires dans le domaine ELECTRIQUE.
 </section>
 
 
-<!-- SERVICES -->
+<!-- =========================================================
+     SERVICES
+========================================================= -->
 
 <section class="services" id="services">
 
 <div class="container">
 
 <div class="section-title">
+<div class="mini">Notre expertise</div>
 <h2>NOS SERVICES</h2>
-<p>Des solutions techniques adaptées à vos besoins</p>
+<p>Des solutions techniques adaptées à vos besoins.</p>
 </div>
 
 <div class="services-grid">
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/>
 </svg>
-
+</div>
 <h3>Installation électrique</h3>
 <p>Installation et réalisation des systèmes électriques.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="m14 7 3-3 3 3-3 3"/>
 <path d="M17 4 9 12"/>
 <path d="M4 20h5"/>
-<path d="m6 18 8-8"/>
 </svg>
-
+</div>
 <h3>Dépannage</h3>
 <p>Recherche de pannes et interventions électriques.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.7-2.7 1.9-2.5Z"/>
 </svg>
-
+</div>
 <h3>Maintenance électrique</h3>
 <p>Entretien et maintenance des installations.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="M3 11 12 3l9 8"/>
 <path d="M5 10v10h14V10"/>
 <path d="M9 20v-6h6v6"/>
 </svg>
-
+</div>
 <h3>Rénovation</h3>
 <p>Modernisation et amélioration des installations.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="M20 6 9 17l-5-5"/>
 </svg>
-
+</div>
 <h3>Mise aux normes électriques</h3>
 <p>Amélioration et sécurisation des installations.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <rect x="6" y="3" width="12" height="18" rx="2"/>
 <path d="M9 7h6"/>
 <path d="M9 17h6"/>
-<path d="M12 10v4"/>
 </svg>
-
+</div>
 <h3>Groupes électrogènes</h3>
 <p>Installation et interventions sur groupes électrogènes.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="M3 8h18v12H3z"/>
 <path d="m8 8 1-3h6l1 3"/>
 <circle cx="12" cy="14" r="3"/>
 </svg>
-
+</div>
 <h3>Caméras de surveillance</h3>
 <p>Installation de systèmes de vidéosurveillance.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <rect x="5" y="10" width="14" height="10" rx="2"/>
 <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
 </svg>
-
+</div>
 <h3>Contrôle d'accès & alarmes</h3>
 <p>Solutions de sécurité et de contrôle d'accès.</p>
-
 </div>
 
-<div class="service">
 
-<svg class="icon-svg" viewBox="0 0 24 24">
+<div class="service">
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <path d="M4 19h16"/>
 <path d="M6 16V5h12v11"/>
 <path d="M9 8h6"/>
 <path d="M9 11h6"/>
 </svg>
-
+</div>
 <h3>Études & conseils techniques</h3>
 <p>Études, conseils et accompagnement technique.</p>
-
 </div>
+
 
 <div class="service">
-
-<svg class="icon-svg" viewBox="0 0 24 24">
-<path d="M12 3v18"/>
-<path d="M3 12h18"/>
+<div class="service-icon">
+<svg viewBox="0 0 24 24">
 <circle cx="12" cy="12" r="8"/>
+<path d="M12 4v16"/>
+<path d="M4 12h16"/>
 </svg>
-
+</div>
 <h3>Partenariat & sous-traitance</h3>
 <p>Collaboration avec entreprises et professionnels.</p>
-
 </div>
+
 
 </div>
 
@@ -810,7 +985,9 @@ organisations et partenaires dans le domaine ELECTRIQUE.
 </section>
 
 
-<!-- PHOTOS -->
+<!-- =========================================================
+     PHOTOS GITHUB
+========================================================= -->
 
 <section class="gallery-section" id="photos">
 
@@ -818,26 +995,39 @@ organisations et partenaires dans le domaine ELECTRIQUE.
 
 <div class="section-title">
 
-<h3>REALISATIONS ET INTERVENTIONS</h3>
+<div class="mini">Nos réalisations</div>
+
+<h2>REALISATIONS & INTERVENTIONS</h2>
 
 <p>
-Découvrez nos réalisations et interventions.
+Les photos publiées dans notre dossier GitHub apparaissent automatiquement ici.
 </p>
 
 </div>
 
+<div style="text-align:center;">
+<div class="github-badge">
+● GALERIE EN LIGNE
+</div>
+</div>
+
+
+<div id="githubPhotoGallery" class="gallery">
+
+<div class="empty">
+Chargement des réalisations...
+</div>
+
+</div>
+
+
+<br><br>
+
+
 <div class="gallery-actions">
 
 <label for="photoInput" class="upload-btn">
-
-<svg class="icon-svg" viewBox="0 0 24 24">
-<rect x="3" y="5" width="18" height="15" rx="2"/>
-<circle cx="12" cy="12" r="3"/>
-<path d="M8 5 9 3h6l1 2"/>
-</svg>
-
-AJOUTER DES PHOTOS
-
+AJOUTER DES PHOTOS DEPUIS LE TÉLÉPHONE
 </label>
 
 <input
@@ -849,25 +1039,8 @@ multiple
 
 </div>
 
+
 <div id="photoGallery" class="gallery">
-
-<div class="empty">
-
-<svg class="icon-svg" viewBox="0 0 24 24">
-<rect x="3" y="5" width="18" height="15" rx="2"/>
-<circle cx="12" cy="12" r="3"/>
-</svg>
-
-<br>
-
-Vos photos apparaîtront ici.
-
-<br><br>
-
-Appuyez sur « AJOUTER DES PHOTOS » pour sélectionner
-plusieurs photos dans votre téléphone.
-
-</div>
 
 </div>
 
@@ -876,13 +1049,17 @@ plusieurs photos dans votre téléphone.
 </section>
 
 
-<!-- VIDÉOS -->
+<!-- =========================================================
+     VIDÉOS
+========================================================= -->
 
 <section class="gallery-section" id="videos">
 
 <div class="container">
 
 <div class="section-title">
+
+<div class="mini">Notre travail en images</div>
 
 <h2>NOS VIDÉOS</h2>
 
@@ -892,17 +1069,11 @@ Découvrez nos interventions en vidéo.
 
 </div>
 
+
 <div class="gallery-actions">
 
 <label for="videoInput" class="upload-btn">
-
-<svg class="icon-svg" viewBox="0 0 24 24">
-<rect x="3" y="5" width="15" height="14" rx="2"/>
-<path d="m18 10 3-2v8l-3-2"/>
-</svg>
-
-AJOUTER DES VIDÉOS
-
+AJOUTER DES VIDÉOS DEPUIS LE TÉLÉPHONE
 </label>
 
 <input
@@ -914,24 +1085,11 @@ multiple
 
 </div>
 
+
 <div id="videoGallery" class="gallery">
 
 <div class="empty">
-
-<svg class="icon-svg" viewBox="0 0 24 24">
-<rect x="3" y="5" width="15" height="14" rx="2"/>
-<path d="m18 10 3-2v8l-3-2"/>
-</svg>
-
-<br>
-
-Vos vidéos apparaîtront ici.
-
-<br><br>
-
-Appuyez sur « AJOUTER DES VIDÉOS » pour sélectionner
-plusieurs vidéos dans votre téléphone.
-
+Aucune vidéo sélectionnée depuis le téléphone.
 </div>
 
 </div>
@@ -941,7 +1099,9 @@ plusieurs vidéos dans votre téléphone.
 </section>
 
 
-<!-- INTERVENTIONS -->
+<!-- =========================================================
+     INTERVENTIONS
+========================================================= -->
 
 <section class="interventions" id="interventions">
 
@@ -949,15 +1109,19 @@ plusieurs vidéos dans votre téléphone.
 
 <div class="section-title">
 
+<div class="mini">Nos activités</div>
+
 <h2>CE QUE NOUS FAISONS</h2>
 
-<p style="color:#ccc;">
+<p>
 Une équipe orientée vers des solutions pratiques.
 </p>
 
 </div>
 
+
 <div class="intervention-grid">
+
 
 <div class="intervention">
 
@@ -968,11 +1132,12 @@ Installations, dépannage, rénovation et maintenance.
 </p>
 
 <a href="https://wa.me/243900051039"
-class="btn btn-whatsapp">
-DEMANDER UNE INSTALLATION ELECTRIQUE
+class="btn btn-white">
+DEMANDER UNE INSTALLATION
 </a>
 
 </div>
+
 
 <div class="intervention">
 
@@ -983,15 +1148,16 @@ Interventions pour identifier et résoudre les problèmes.
 </p>
 
 <a href="https://wa.me/243900051039"
-class="btn btn-whatsapp">
-DEMANDER UN DEPANNAGE
+class="btn btn-white">
+DEMANDER UN DÉPANNAGE
 </a>
 
 </div>
 
+
 <div class="intervention">
 
-<h3>APPORT D’AFFAIRES</h3>
+<h3>APPORT D'AFFAIRES</h3>
 
 <p>
 Faites affaire avec nous et gagnez une commission
@@ -999,26 +1165,28 @@ en toute transparence.
 </p>
 
 <a href="https://wa.me/243900051039"
-class="btn btn-whatsapp">
-S’INFORMER
+class="btn btn-white">
+S'INFORMER
 </a>
 
 </div>
 
+
 <div class="intervention">
 
-<h2>Collaboration</h2>
+<h3>COLLABORATION</h3>
 
 <p>
 Sous-traitance, co-traitance et partenariats professionnels.
 </p>
 
 <a href="https://wa.me/243900051039"
-class="btn btn-whatsapp">
-OUVRIR UN MARCHE AVEC NOUS
+class="btn btn-white">
+OUVRIR UN MARCHÉ
 </a>
 
 </div>
+
 
 </div>
 
@@ -1027,7 +1195,9 @@ OUVRIR UN MARCHE AVEC NOUS
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
 <section class="contact" id="contact">
 
@@ -1036,26 +1206,25 @@ OUVRIR UN MARCHE AVEC NOUS
 <h2>CONTACTEZ-NOUS</h2>
 
 <p>
-📱 WhatsApp : +243 900 051 039
+WhatsApp : +243 900 051 039
 </p>
 
 <p>
-📧 Email : iservicesgroupe@gmail.com
+Email : iservicesgroupe@gmail.com
 </p>
+
 
 <div class="contact-buttons">
 
 <a
 href="https://wa.me/243900051039"
-class="btn"
->
+class="btn btn-black">
 CONTACTER SUR WHATSAPP
 </a>
 
 <a
 href="mailto:iservicesgroupe@gmail.com"
-class="btn"
->
+class="btn btn-white">
 ENVOYER UN EMAIL
 </a>
 
@@ -1066,31 +1235,31 @@ ENVOYER UN EMAIL
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
 <strong>i-SERVICES GROUPE</strong>
 
-<p>
 <address>
 Ce site est détenu par les responsables de i-SERVICES GROUPE.
 Vous êtes en sécurité sur toutes vos actions sur ce site.
 </address>
-</p>
 
-<br>
-
+<div class="footer-slogan">
 Vous + nous, innovons ensemble.
-
-<br>
+</div>
 
 © 2026 i-SERVICES GROUPE — Tous droits réservés.
 
 </footer>
 
 
-<!-- BOUTON WHATSAPP FLOTTANT -->
+<!-- =========================================================
+     WHATSAPP FLOTTANT
+========================================================= -->
 
 <a
 href="https://wa.me/243900051039"
@@ -1111,18 +1280,153 @@ aria-label="Contacter i-SERVICES GROUPE sur WhatsApp"
 
 <script>
 
-/* =========================
-   PHOTOS
-========================= */
+/* =========================================================
+   GITHUB
+   CONFIGURATION DE LA GALERIE
+========================================================= */
 
-const photoInput = document.getElementById("photoInput");
-const photoGallery = document.getElementById("photoGallery");
+const GITHUB_USER = "iservicesgroupe-arch";
+const GITHUB_REPO = "mon-site-";
+const GITHUB_FOLDER = "photos";
+
+const githubGallery =
+document.getElementById("githubPhotoGallery");
+
+
+/* =========================================================
+   CHARGER LES PHOTOS DU DOSSIER GITHUB
+========================================================= */
+
+async function loadGitHubPhotos(){
+
+    try{
+
+        const apiUrl =
+        `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`;
+
+        const response = await fetch(apiUrl, {
+            cache:"no-store"
+        });
+
+        if(!response.ok){
+            throw new Error("Impossible de lire le dossier GitHub.");
+        }
+
+        const files = await response.json();
+
+        githubGallery.innerHTML = "";
+
+        const imageFiles = files.filter(file => {
+
+            const name = file.name.toLowerCase();
+
+            return file.type === "file" &&
+            (
+                name.endsWith(".jpg") ||
+                name.endsWith(".jpeg") ||
+                name.endsWith(".png") ||
+                name.endsWith(".webp") ||
+                name.endsWith(".gif")
+            );
+
+        });
+
+
+        if(imageFiles.length === 0){
+
+            githubGallery.innerHTML = `
+                <div class="empty">
+                    Aucune photo trouvée dans le dossier
+                    <strong>photos</strong>.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        imageFiles.forEach(file => {
+
+            const card =
+            document.createElement("div");
+
+            card.className = "gallery-item";
+
+
+            const image =
+            document.createElement("img");
+
+            image.src = file.download_url;
+
+            image.alt =
+            "Réalisation i-SERVICES GROUPE";
+
+            image.loading = "lazy";
+
+
+            const label =
+            document.createElement("div");
+
+            label.className =
+            "gallery-label";
+
+            label.textContent =
+            "i-SERVICES GROUPE";
+
+
+            card.appendChild(image);
+            card.appendChild(label);
+
+            githubGallery.appendChild(card);
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        githubGallery.innerHTML = `
+            <div class="empty">
+                Impossible de charger les photos pour le moment.
+                <br><br>
+                Vérifiez que le dossier
+                <strong>photos</strong>
+                est bien présent sur GitHub.
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   LANCEMENT GALERIE GITHUB
+========================================================= */
+
+loadGitHubPhotos();
+
+
+/* =========================================================
+   PHOTOS DEPUIS LE TÉLÉPHONE
+========================================================= */
+
+const photoInput =
+document.getElementById("photoInput");
+
+const photoGallery =
+document.getElementById("photoGallery");
+
 
 photoInput.addEventListener("change", function(){
 
     photoGallery.innerHTML = "";
 
-    const files = Array.from(this.files);
+    const files =
+    Array.from(this.files);
+
 
     if(files.length === 0){
 
@@ -1132,18 +1436,38 @@ photoInput.addEventListener("change", function(){
         return;
     }
 
+
     files.forEach(function(file){
 
-        const card = document.createElement("div");
-        card.className = "gallery-item";
+        const card =
+        document.createElement("div");
 
-        const image = document.createElement("img");
+        card.className =
+        "gallery-item";
 
-        image.src = URL.createObjectURL(file);
 
-        image.alt = "Réalisation i-SERVICES GROUPE";
+        const image =
+        document.createElement("img");
+
+        image.src =
+        URL.createObjectURL(file);
+
+        image.alt =
+        "Réalisation i-SERVICES GROUPE";
+
+
+        const label =
+        document.createElement("div");
+
+        label.className =
+        "gallery-label";
+
+        label.textContent =
+        "Photo sélectionnée";
+
 
         card.appendChild(image);
+        card.appendChild(label);
 
         photoGallery.appendChild(card);
 
@@ -1152,18 +1476,24 @@ photoInput.addEventListener("change", function(){
 });
 
 
-/* =========================
+/* =========================================================
    VIDÉOS
-========================= */
+========================================================= */
 
-const videoInput = document.getElementById("videoInput");
-const videoGallery = document.getElementById("videoGallery");
+const videoInput =
+document.getElementById("videoInput");
+
+const videoGallery =
+document.getElementById("videoGallery");
+
 
 videoInput.addEventListener("change", function(){
 
     videoGallery.innerHTML = "";
 
-    const files = Array.from(this.files);
+    const files =
+    Array.from(this.files);
+
 
     if(files.length === 0){
 
@@ -1173,18 +1503,37 @@ videoInput.addEventListener("change", function(){
         return;
     }
 
+
     files.forEach(function(file){
 
-        const card = document.createElement("div");
-        card.className = "gallery-item";
+        const card =
+        document.createElement("div");
 
-        const video = document.createElement("video");
+        card.className =
+        "gallery-item";
+
+
+        const video =
+        document.createElement("video");
 
         video.controls = true;
 
-        video.src = URL.createObjectURL(file);
+        video.src =
+        URL.createObjectURL(file);
+
+
+        const label =
+        document.createElement("div");
+
+        label.className =
+        "gallery-label";
+
+        label.textContent =
+        "Vidéo sélectionnée";
+
 
         card.appendChild(video);
+        card.appendChild(label);
 
         videoGallery.appendChild(card);
 
