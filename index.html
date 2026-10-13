@@ -44,7 +44,7 @@ a{
     -webkit-tap-highlight-color:transparent;
 }
 
-/* HEADER */
+/* EN-TETE */
 
 header{
     position:sticky;
@@ -165,7 +165,7 @@ nav a:active{
     color:#fff;
 }
 
-/* ACCUEIL */
+/* ACCUEIL : PHOTO SANS FILTRE NOIR */
 
 .hero{
     min-height:680px;
@@ -175,9 +175,8 @@ nav a:active{
     text-align:center;
     padding:80px 20px;
     position:relative;
-    background:
-        linear-gradient(135deg,rgba(0,0,0,.48),rgba(0,0,0,.30)),
-        url("photos/IMG-20261013-WA0080.jpg");
+
+    background-image:url("./photos/IMG-20261013-WA0080.jpg");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -640,6 +639,7 @@ footer address{
 }
 
 @media(prefers-reduced-motion:reduce){
+
     html{
         scroll-behavior:auto;
     }
@@ -893,7 +893,7 @@ et partenaires dans le domaine électrique.
 </div>
 </section>
 
-<!-- GALERIE PHOTOS GITHUB -->
+<!-- GALERIE PHOTOS AUTOMATIQUE -->
 
 <section class="gallery-section" id="photos">
 
@@ -1097,7 +1097,7 @@ async function loadGitHubPhotos(){
 
         });
 
-        /* Les fichiers les plus récents apparaissent en premier. */
+        /* PHOTOS LES PLUS RECENTES EN PREMIER */
 
         imageFiles.sort((a,b) => {
 
