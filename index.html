@@ -388,11 +388,7 @@ section{
     isolation:isolate;
 }
 
-/*
-   IMPORTANT :
-   On applique les dimensions aux médias principaux seulement.
-   Le filigrane est exclu pour éviter qu'il soit étiré ou coupé.
-*/
+/* MÉDIAS PRINCIPAUX */
 
 .media-wrap > img:not(.media-watermark),
 .media-wrap > video{
@@ -414,32 +410,34 @@ section{
     cursor:pointer;
 }
 
-/* FILIGRANE : LOGO ENTIER AU FORMAT STICKER */
+/* FILIGRANE : LOGO ENTIER EN STICKER
+   CENTRÉ ET LÉGÈREMENT VERS LE BAS */
 
 .media-watermark{
     position:absolute;
 
-    /* Position discrète dans le coin supérieur gauche */
-    top:10px;
-    left:10px;
+    /* Position : centre, légèrement en dessous */
+    left:50%;
+    top:60%;
+    transform:translate(-50%,-50%);
 
-    /* Taille fixe pour ne pas déformer le logo */
-    width:58px;
-    height:58px;
+    /* Taille du sticker */
+    width:82px;
+    height:82px;
+    max-width:82px;
+    max-height:82px;
 
-    max-width:58px;
-    max-height:58px;
-
-    /* Conserve les proportions du logo original */
+    /* Logo entier, sans découpage ni déformation */
     object-fit:contain;
     object-position:center;
 
     display:block;
-
     z-index:5;
-    opacity:.30;
 
-    /* Le logo reste intact, sans filtre ni déformation */
+    /* Transparence discrète */
+    opacity:.38;
+
+    /* Préserve l'apparence originale du logo */
     filter:none;
     mix-blend-mode:normal;
 
@@ -455,7 +453,8 @@ section{
     pointer-events:none;
 }
 
-/* MASQUER LE BOUTON PLEIN ECRAN SI LE NAVIGATEUR LE PERMET */
+/* MASQUER LE BOUTON PLEIN ÉCRAN
+   SUR LES NAVIGATEURS QUI ACCEPTENT CETTE RÈGLE */
 
 .media-wrap video::-webkit-media-controls-fullscreen-button{
     display:none !important;
@@ -465,7 +464,11 @@ section{
     display:none !important;
 }
 
-/* TITRES DES MEDIAS */
+/* AUTRES COMMANDES VIDÉO */
+
+.media-wrap video::-webkit-media-controls-play-button{
+    display:flex;
+}
 
 .gallery-label{
     padding:11px 13px;
@@ -706,13 +709,12 @@ footer address{
     }
 
     .media-watermark{
-        top:8px;
-        left:8px;
-        width:52px;
-        height:52px;
-        max-width:52px;
-        max-height:52px;
-        opacity:.30;
+        width:70px;
+        height:70px;
+        max-width:70px;
+        max-height:70px;
+        top:60%;
+        opacity:.38;
     }
 
     .whatsapp-floating{
@@ -798,7 +800,7 @@ footer address{
             <a href="https://wa.me/243900051039" class="btn btn-white">
                 <svg class="whatsapp-svg" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z"/>
-                    <path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
+                    <path d="M8.2 7.7c.2-.4.4-.4.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
                 </svg>
                 NOUS CONTACTER
             </a>
@@ -1078,7 +1080,7 @@ const GITHUB_REPO = "mon-site-";
 const GITHUB_PHOTO_FOLDER = "photos";
 const GITHUB_VIDEO_FOLDER = "videos";
 
-/* CHEMIN DU LOGO ORIGINAL */
+/* LOGO ORIGINAL UTILISÉ COMME FILIGRANE */
 
 const LOGO_PATH =
     "./photos/file_000000009d8071f4847879d30c769d33.png";
@@ -1090,7 +1092,7 @@ const githubVideoGallery =
     document.getElementById("githubVideoGallery");
 
 
-/* TRI : FICHIERS LES PLUS RECENTS EN PREMIER */
+/* TRI : FICHIERS LES PLUS RÉCENTS EN PREMIER */
 
 function sortNewestFirst(a,b){
     const dateA = a.name.match(/20\d{6}/);
@@ -1125,7 +1127,7 @@ function removeDuplicateNames(files){
 }
 
 
-/* CONTENEUR MEDIA AVEC FILIGRANE */
+/* CONTENEUR MEDIA AVEC LOGO FILIGRANE */
 
 function createMediaWrapper(media){
     const wrapper = document.createElement("div");
@@ -1153,7 +1155,7 @@ function createMediaWrapper(media){
 }
 
 
-/* CHARGEMENT DES PHOTOS */
+/* CHARGEMENT AUTOMATIQUE DES PHOTOS */
 
 async function loadGitHubPhotos(){
     try{
@@ -1235,7 +1237,7 @@ async function loadGitHubPhotos(){
 }
 
 
-/* CHARGEMENT DES VIDEOS */
+/* CHARGEMENT AUTOMATIQUE DES VIDÉOS */
 
 async function loadGitHubVideos(){
     try{
@@ -1283,23 +1285,16 @@ async function loadGitHubVideos(){
             const video = document.createElement("video");
 
             video.src = file.download_url;
-
-            /*
-              Les commandes de lecture restent disponibles.
-              nofullscreen demande au navigateur de masquer
-              l'option plein écran lorsqu'il prend cette option en charge.
-            */
-
             video.controls = true;
             video.preload = "metadata";
             video.playsInline = true;
             video.draggable = false;
 
             video.setAttribute("playsinline","");
-            video.setAttribute(
-                "aria-label",
-                "Vidéo i-SERVICES GROUPE"
-            );
+            video.setAttribute("aria-label","Vidéo i-SERVICES GROUPE");
+
+            /* Demande au navigateur de masquer le plein écran,
+               le téléchargement et l'image dans l'image. */
 
             video.setAttribute(
                 "controlsList",
@@ -1335,7 +1330,7 @@ async function loadGitHubVideos(){
 }
 
 
-/* LIMITATION DU CLIC DROIT SUR LES MEDIAS */
+/* LIMITATION DU CLIC DROIT SUR LES MÉDIAS */
 
 document.addEventListener("contextmenu",function(event){
     if(event.target.closest(".media-wrap")){
@@ -1344,7 +1339,7 @@ document.addEventListener("contextmenu",function(event){
 });
 
 
-/* LIMITATION DU GLISSEMENT DES MEDIAS */
+/* LIMITATION DU GLISSEMENT DES MÉDIAS */
 
 document.addEventListener("dragstart",function(event){
     if(event.target.closest(".media-wrap")){
