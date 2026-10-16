@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description" content="i-SERVICES GROUPE - Solutions électriques professionnelles, dépannage, maintenance, rénovation, solaire et sécurité.">
-
 <meta name="theme-color" content="#ffffff">
 
 <title>i-SERVICES GROUPE | Excellence électrique</title>
@@ -165,7 +164,7 @@ nav a:active{
     color:#fff;
 }
 
-/* ACCUEIL : PHOTO SANS FILTRE NOIR */
+/* ACCUEIL : PHOTO DE FOND */
 
 .hero{
     min-height:680px;
@@ -175,7 +174,6 @@ nav a:active{
     text-align:center;
     padding:80px 20px;
     position:relative;
-
     background-image:url("./photos/IMG-20261013-WA0082.jpg");
     background-size:cover;
     background-position:center;
@@ -189,14 +187,8 @@ nav a:active{
 }
 
 @keyframes heroAppear{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{opacity:0;transform:translateY(25px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 .hero-badge{
@@ -356,7 +348,7 @@ section{
     font-size:14px;
 }
 
-/* GALERIE PHOTOS */
+/* GALERIES PHOTOS ET VIDEOS */
 
 .gallery-section{
     background:#fff;
@@ -376,6 +368,7 @@ section{
     overflow:hidden;
     box-shadow:6px 6px 0 var(--orange);
     transition:.25s ease;
+    min-width:0;
 }
 
 .gallery-item:hover{
@@ -389,6 +382,11 @@ section{
     height:260px;
     display:block;
     object-fit:cover;
+    background:#111;
+}
+
+.gallery-item video{
+    object-fit:contain;
 }
 
 .gallery-label{
@@ -397,6 +395,7 @@ section{
     color:#fff;
     font-size:12px;
     font-weight:bold;
+    overflow-wrap:anywhere;
 }
 
 .github-badge{
@@ -547,89 +546,31 @@ footer address{
 }
 
 @keyframes whatsappMotion{
-    0%,15%,100%{
-        transform:translateY(0);
-    }
-    3%{
-        transform:translateY(-13px);
-    }
-    6%{
-        transform:translateY(11px);
-    }
-    9%{
-        transform:translateY(-9px);
-    }
-    12%{
-        transform:translateY(7px);
-    }
+    0%,15%,100%{transform:translateY(0);}
+    3%{transform:translateY(-13px);}
+    6%{transform:translateY(11px);}
+    9%{transform:translateY(-9px);}
+    12%{transform:translateY(7px);}
 }
 
 /* AFFICHAGE MOBILE */
 
 @media(max-width:700px){
-
-    header{
-        padding:12px 7px;
-    }
-
-    .logo{
-        font-size:21px;
-    }
-
-    nav{
-        justify-content:flex-start;
-    }
-
-    nav a{
-        font-size:11px;
-        padding:8px 11px;
-    }
-
-    .hero{
-        min-height:610px;
-        padding:60px 17px;
-    }
-
-    .hero h1{
-        font-size:31px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .hero-actions{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .hero-actions .btn{
-        width:100%;
-        max-width:340px;
-    }
-
-    section{
-        padding:60px 15px;
-    }
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-    .about-box{
-        padding:25px 20px;
-    }
-
-    .btn{
-        width:calc(100% - 10px);
-        max-width:350px;
-    }
-
+    header{padding:12px 7px;}
+    .logo{font-size:21px;}
+    nav{justify-content:flex-start;}
+    nav a{font-size:11px;padding:8px 11px;}
+    .hero{min-height:610px;padding:60px 17px;}
+    .hero h1{font-size:31px;}
+    .hero p{font-size:16px;}
+    .hero-actions{flex-direction:column;align-items:center;}
+    .hero-actions .btn{width:100%;max-width:340px;}
+    section{padding:60px 15px;}
+    .section-title h2{font-size:28px;}
+    .about-box{padding:25px 20px;}
+    .btn{width:calc(100% - 10px);max-width:350px;}
     .gallery-item img,
-    .gallery-item video{
-        height:230px;
-    }
-
+    .gallery-item video{height:230px;}
     .whatsapp-floating{
         width:58px;
         height:58px;
@@ -639,22 +580,9 @@ footer address{
 }
 
 @media(prefers-reduced-motion:reduce){
-
-    html{
-        scroll-behavior:auto;
-    }
-
-    .hero-content,
-    .whatsapp-floating{
-        animation:none;
-    }
-
-    .btn,
-    nav a,
-    .service,
-    .gallery-item{
-        transition:none;
-    }
+    html{scroll-behavior:auto;}
+    .hero-content,.whatsapp-floating{animation:none;}
+    .btn,nav a,.service,.gallery-item{transition:none;}
 }
 </style>
 </head>
@@ -664,422 +592,366 @@ footer address{
 <!-- EN-TETE -->
 
 <header>
+    <div class="logo">i-<span>SERVICES GROUPE</span></div>
+    <div class="logo-line"></div>
 
-<div class="logo">
-    i-<span>SERVICES GROUPE</span>
-</div>
-
-<div class="logo-line"></div>
-
-<nav aria-label="Navigation principale">
-    <a href="#accueil">Accueil</a>
-    <a href="#apropos">À propos</a>
-    <a href="#services">Services</a>
-    <a href="#photos">Photos</a>
-    <a href="#videos">Vidéos</a>
-    <a href="#interventions">Interventions</a>
-    <a href="#contact">Contact</a>
-</nav>
-
+    <nav aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#services">Services</a>
+        <a href="#photos">Photos</a>
+        <a href="#videos">Vidéos</a>
+        <a href="#interventions">Interventions</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <!-- ACCUEIL -->
 
 <section class="hero" id="accueil">
+    <div class="hero-content">
+        <div class="hero-badge">SOLUTIONS ÉLECTRIQUES PROFESSIONNELLES</div>
 
-<div class="hero-content">
+        <h1>
+            BIENVENUE SUR LE SITE OFFICIEL DE
+            <span>i-SERVICES GROUPE</span>
+        </h1>
 
-<div class="hero-badge">
-    SOLUTIONS ÉLECTRIQUES PROFESSIONNELLES
-</div>
+        <p>
+            Nous présentons nos réalisations, nos interventions
+            et le savoir-faire de nos différents agents.
+        </p>
 
-<h1>
-    BIENVENUE SUR LE SITE OFFICIEL DE
-    <span>i-SERVICES GROUPE</span>
-</h1>
+        <div class="hero-actions">
+            <a href="#photos" class="btn btn-orange">
+                DÉCOUVRIR NOS RÉALISATIONS
+            </a>
 
-<p>
-    Nous présentons nos réalisations, nos interventions
-    et le savoir-faire de nos différents agents.
-</p>
-
-<div class="hero-actions">
-
-<a href="#photos" class="btn btn-orange">
-    DÉCOUVRIR NOS RÉALISATIONS
-</a>
-
-<a href="https://wa.me/243900051039"
-   class="btn btn-white">
-
-<svg class="whatsapp-svg" viewBox="0 0 24 24" aria-hidden="true">
-<path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z"/>
-<path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
-</svg>
-
-NOUS CONTACTER
-</a>
-
-</div>
-</div>
+            <a href="https://wa.me/243900051039" class="btn btn-white">
+                <svg class="whatsapp-svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z"/>
+                    <path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
+                </svg>
+                NOUS CONTACTER
+            </a>
+        </div>
+    </div>
 </section>
 
 <!-- A PROPOS -->
 
 <section class="about" id="apropos">
+    <div class="container">
+        <div class="section-title">
+            <div class="mini">Notre identité</div>
+            <h2>À PROPOS DE NOUS</h2>
+            <p>Professionnalisme • Qualité • Collaboration</p>
+        </div>
 
-<div class="container">
+        <div class="about-box">
+            <div class="about-text">
+                <p>
+                    <strong>i-SERVICES GROUPE</strong> est un groupe de professionnels
+                    spécialisé dans les services électriques.
+                </p>
 
-<div class="section-title">
-<div class="mini">Notre identité</div>
-<h2>À PROPOS DE NOUS</h2>
-<p>Professionnalisme • Qualité • Collaboration</p>
-</div>
+                <p>
+                    Notre objectif est de proposer des interventions électriques,
+                    des solutions adaptées aux besoins de nos clients et un travail
+                    réalisé avec professionnalisme.
+                </p>
 
-<div class="about-box">
-
-<div class="about-text">
-
-<p>
-<strong>i-SERVICES GROUPE</strong> est un groupe de professionnels
-spécialisé dans les services électriques.
-</p>
-
-<p>
-Notre objectif est de proposer des interventions électriques,
-des solutions adaptées aux besoins de nos clients et un travail
-réalisé avec professionnalisme.
-</p>
-
-<p>
-Nous intervenons auprès des particuliers, organisations
-et partenaires dans le domaine électrique.
-</p>
-
-</div>
-</div>
-</div>
+                <p>
+                    Nous intervenons auprès des particuliers, organisations
+                    et partenaires dans le domaine électrique.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- SERVICES -->
 
 <section class="services" id="services">
+    <div class="container">
+        <div class="section-title">
+            <div class="mini">Notre expertise</div>
+            <h2>NOS SERVICES</h2>
+            <p>Des solutions techniques adaptées à vos besoins.</p>
+        </div>
 
-<div class="container">
+        <div class="services-grid">
 
-<div class="section-title">
-<div class="mini">Notre expertise</div>
-<h2>NOS SERVICES</h2>
-<p>Des solutions techniques adaptées à vos besoins.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+                </div>
+                <h3>Installation électrique</h3>
+                <p>Installation et réalisation des systèmes électriques.</p>
+            </div>
 
-<div class="services-grid">
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7 3-3 3 3-3 3"/><path d="M17 4 9 12"/><path d="M4 20h5"/></svg>
+                </div>
+                <h3>Dépannage</h3>
+                <p>Recherche de pannes et interventions électriques.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/>
-</svg>
-</div>
-<h3>Installation électrique</h3>
-<p>Installation et réalisation des systèmes électriques.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.7-2.7 1.9-2.5Z"/></svg>
+                </div>
+                <h3>Maintenance électrique</h3>
+                <p>Entretien et maintenance des installations.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="m14 7 3-3 3 3-3 3"/>
-<path d="M17 4 9 12"/>
-<path d="M4 20h5"/>
-</svg>
-</div>
-<h3>Dépannage</h3>
-<p>Recherche de pannes et interventions électriques.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+                </div>
+                <h3>Rénovation</h3>
+                <p>Modernisation et amélioration des installations.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.2 2.2-2.7-2.7 1.9-2.5Z"/>
-</svg>
-</div>
-<h3>Maintenance électrique</h3>
-<p>Entretien et maintenance des installations.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <h3>Mise aux normes électriques</h3>
+                <p>Amélioration et sécurisation des installations.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M3 11 12 3l9 8"/>
-<path d="M5 10v10h14V10"/>
-<path d="M9 20v-6h6v6"/>
-</svg>
-</div>
-<h3>Rénovation</h3>
-<p>Modernisation et amélioration des installations.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6"/><path d="M9 17h6"/></svg>
+                </div>
+                <h3>Groupes électrogènes</h3>
+                <p>Installation et interventions sur groupes électrogènes.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M20 6 9 17l-5-5"/>
-</svg>
-</div>
-<h3>Mise aux normes électriques</h3>
-<p>Amélioration et sécurisation des installations.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18v12H3z"/><path d="m8 8 1-3h6l1 3"/><circle cx="12" cy="14" r="3"/></svg>
+                </div>
+                <h3>Caméras de surveillance</h3>
+                <p>Installation de systèmes de vidéosurveillance.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<rect x="6" y="3" width="12" height="18" rx="2"/>
-<path d="M9 7h6"/>
-<path d="M9 17h6"/>
-</svg>
-</div>
-<h3>Groupes électrogènes</h3>
-<p>Installation et interventions sur groupes électrogènes.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                </div>
+                <h3>Contrôle d'accès & alarmes</h3>
+                <p>Solutions de sécurité et de contrôle d'accès.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M3 8h18v12H3z"/>
-<path d="m8 8 1-3h6l1 3"/>
-<circle cx="12" cy="14" r="3"/>
-</svg>
-</div>
-<h3>Caméras de surveillance</h3>
-<p>Installation de systèmes de vidéosurveillance.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"/><path d="M6 16V5h12v11"/><path d="M9 8h6"/><path d="M9 11h6"/></svg>
+                </div>
+                <h3>Études & conseils techniques</h3>
+                <p>Études, conseils et accompagnement technique.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<rect x="5" y="10" width="14" height="10" rx="2"/>
-<path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-</svg>
-</div>
-<h3>Contrôle d'accès & alarmes</h3>
-<p>Solutions de sécurité et de contrôle d'accès.</p>
-</div>
+            <div class="service">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/><path d="M4 12h16"/></svg>
+                </div>
+                <h3>Partenariat & sous-traitance</h3>
+                <p>Collaboration avec entreprises et professionnels.</p>
+            </div>
 
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 19h16"/>
-<path d="M6 16V5h12v11"/>
-<path d="M9 8h6"/>
-<path d="M9 11h6"/>
-</svg>
-</div>
-<h3>Études & conseils techniques</h3>
-<p>Études, conseils et accompagnement technique.</p>
-</div>
-
-<div class="service">
-<div class="service-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<circle cx="12" cy="12" r="8"/>
-<path d="M12 4v16"/>
-<path d="M4 12h16"/>
-</svg>
-</div>
-<h3>Partenariat & sous-traitance</h3>
-<p>Collaboration avec entreprises et professionnels.</p>
-</div>
-
-</div>
-</div>
+        </div>
+    </div>
 </section>
 
 <!-- GALERIE PHOTOS AUTOMATIQUE -->
 
 <section class="gallery-section" id="photos">
+    <div class="container">
+        <div class="section-title">
+            <div class="mini">Nos réalisations</div>
+            <h2>RÉALISATIONS & INTERVENTIONS</h2>
+            <p>Découvrez les réalisations et les interventions de notre équipe.</p>
+        </div>
 
-<div class="container">
+        <div style="text-align:center;">
+            <div class="github-badge">● GALERIE EN LIGNE</div>
+        </div>
 
-<div class="section-title">
-<div class="mini">Nos réalisations</div>
-<h2>RÉALISATIONS & INTERVENTIONS</h2>
-<p>Découvrez les réalisations et les interventions de notre équipe.</p>
-</div>
-
-<div style="text-align:center;">
-<div class="github-badge">
-● GALERIE EN LIGNE
-</div>
-</div>
-
-<div id="githubPhotoGallery" class="gallery">
-
-<div class="empty">
-Chargement des réalisations...
-</div>
-
-</div>
-
-</div>
+        <div id="githubPhotoGallery" class="gallery">
+            <div class="empty">Chargement des réalisations...</div>
+        </div>
+    </div>
 </section>
 
-<!-- VIDEOS -->
+<!-- GALERIE VIDEOS AUTOMATIQUE -->
 
 <section class="gallery-section" id="videos">
+    <div class="container">
+        <div class="section-title">
+            <div class="mini">Notre travail en images</div>
+            <h2>NOS VIDÉOS</h2>
+            <p>Découvrez nos interventions en vidéo.</p>
+        </div>
 
-<div class="container">
+        <div style="text-align:center;">
+            <div class="github-badge">● VIDÉOS EN LIGNE</div>
+        </div>
 
-<div class="section-title">
-<div class="mini">Notre travail en images</div>
-<h2>NOS VIDÉOS</h2>
-<p>Découvrez nos interventions en vidéo.</p>
-</div>
-
-<div class="gallery">
-
-<div class="empty">
-Les vidéos seront présentées ici lorsqu'elles seront publiées.
-</div>
-
-</div>
-
-</div>
+        <div id="githubVideoGallery" class="gallery">
+            <div class="empty">Chargement des vidéos...</div>
+        </div>
+    </div>
 </section>
 
 <!-- INTERVENTIONS -->
 
 <section class="interventions" id="interventions">
+    <div class="container">
+        <div class="section-title">
+            <div class="mini">Nos activités</div>
+            <h2>CE QUE NOUS FAISONS</h2>
+            <p>Une équipe orientée vers des solutions pratiques.</p>
+        </div>
 
-<div class="container">
+        <div class="intervention-grid">
 
-<div class="section-title">
-<div class="mini">Nos activités</div>
-<h2>CE QUE NOUS FAISONS</h2>
-<p>Une équipe orientée vers des solutions pratiques.</p>
-</div>
+            <div class="intervention">
+                <h3>Électricité</h3>
+                <p>Installations, dépannage, rénovation et maintenance.</p>
+                <a href="https://wa.me/243900051039" class="btn btn-white">DEMANDER UNE INSTALLATION</a>
+            </div>
 
-<div class="intervention-grid">
+            <div class="intervention">
+                <h3>Dépannage</h3>
+                <p>Interventions pour identifier et résoudre les problèmes.</p>
+                <a href="https://wa.me/243900051039" class="btn btn-white">DEMANDER UN DÉPANNAGE</a>
+            </div>
 
-<div class="intervention">
-<h3>Électricité</h3>
-<p>Installations, dépannage, rénovation et maintenance.</p>
-<a href="https://wa.me/243900051039" class="btn btn-white">
-DEMANDER UNE INSTALLATION
-</a>
-</div>
+            <div class="intervention">
+                <h3>APPORT D'AFFAIRES</h3>
+                <p>Faites affaire avec nous et gagnez une commission en toute transparence.</p>
+                <a href="https://wa.me/243900051039" class="btn btn-white">S'INFORMER</a>
+            </div>
 
-<div class="intervention">
-<h3>Dépannage</h3>
-<p>Interventions pour identifier et résoudre les problèmes.</p>
-<a href="https://wa.me/243900051039" class="btn btn-white">
-DEMANDER UN DÉPANNAGE
-</a>
-</div>
+            <div class="intervention">
+                <h3>COLLABORATION</h3>
+                <p>Sous-traitance, co-traitance et partenariats professionnels.</p>
+                <a href="https://wa.me/243900051039" class="btn btn-white">OUVRIR UN MARCHÉ</a>
+            </div>
 
-<div class="intervention">
-<h3>APPORT D'AFFAIRES</h3>
-<p>Faites affaire avec nous et gagnez une commission en toute transparence.</p>
-<a href="https://wa.me/243900051039" class="btn btn-white">
-S'INFORMER
-</a>
-</div>
-
-<div class="intervention">
-<h3>COLLABORATION</h3>
-<p>Sous-traitance, co-traitance et partenariats professionnels.</p>
-<a href="https://wa.me/243900051039" class="btn btn-white">
-OUVRIR UN MARCHÉ
-</a>
-</div>
-
-</div>
-</div>
+        </div>
+    </div>
 </section>
 
 <!-- CONTACT -->
 
 <section class="contact" id="contact">
+    <div class="container">
+        <h2>CONTACTEZ-NOUS</h2>
+        <p>WhatsApp : +243 900 051 039</p>
+        <p>Email : iservicesgroupe@gmail.com</p>
 
-<div class="container">
-
-<h2>CONTACTEZ-NOUS</h2>
-
-<p>WhatsApp : +243 900 051 039</p>
-<p>Email : iservicesgroupe@gmail.com</p>
-
-<div class="contact-buttons">
-
-<a href="https://wa.me/243900051039" class="btn btn-black">
-CONTACTER SUR WHATSAPP
-</a>
-
-<a href="mailto:iservicesgroupe@gmail.com" class="btn btn-white">
-ENVOYER UN EMAIL
-</a>
-
-</div>
-</div>
+        <div class="contact-buttons">
+            <a href="https://wa.me/243900051039" class="btn btn-black">CONTACTER SUR WHATSAPP</a>
+            <a href="mailto:iservicesgroupe@gmail.com" class="btn btn-white">ENVOYER UN EMAIL</a>
+        </div>
+    </div>
 </section>
 
 <!-- PIED DE PAGE -->
 
 <footer>
+    <strong>i-SERVICES GROUPE</strong>
 
-<strong>i-SERVICES GROUPE</strong>
+    <address>
+        Ce site est détenu par les responsables de i-SERVICES GROUPE.
+        Vous êtes en sécurité sur toutes vos actions sur ce site.
+    </address>
 
-<address>
-Ce site est détenu par les responsables de i-SERVICES GROUPE.
-Vous êtes en sécurité sur toutes vos actions sur ce site.
-</address>
+    <div class="footer-slogan">Vous + nous, innovons ensemble.</div>
 
-<div class="footer-slogan">
-Vous + nous, innovons ensemble.
-</div>
-
-<div class="footer-rights">
-© 2026 i-SERVICES GROUPE — Tous droits réservés.
-</div>
-
+    <div class="footer-rights">
+        © 2026 i-SERVICES GROUPE — Tous droits réservés.
+    </div>
 </footer>
 
 <!-- WHATSAPP FLOTTANT -->
 
-<a
-href="https://wa.me/243900051039"
-class="whatsapp-floating"
-aria-label="Contacter i-SERVICES GROUPE sur WhatsApp"
->
+<a href="https://wa.me/243900051039"
+   class="whatsapp-floating"
+   aria-label="Contacter i-SERVICES GROUPE sur WhatsApp">
 
-<svg class="whatsapp-svg" viewBox="0 0 24 24" aria-hidden="true">
-<path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z"/>
-<path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
-</svg>
-
+    <svg class="whatsapp-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.1A8.5 8.5 0 1 1 20 11.5Z"/>
+        <path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 2 1.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.7c.2.1.3.3.3.5v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.5.4-1-.2-2.3-.9-3.4-1.9-1.1-1-1.9-2.2-2.2-3.2-.2-.6-.1-1.2.2-1.7Z"/>
+    </svg>
 </a>
 
 <script>
-/* CONFIGURATION DE LA GALERIE GITHUB */
+/* CONFIGURATION GITHUB */
 
 const GITHUB_USER = "iservicesgroupe-arch";
 const GITHUB_REPO = "mon-site-";
-const GITHUB_FOLDER = "photos";
+const GITHUB_PHOTO_FOLDER = "photos";
+const GITHUB_VIDEO_FOLDER = "videos";
 
-const githubGallery = document.getElementById("githubPhotoGallery");
+const githubPhotoGallery = document.getElementById("githubPhotoGallery");
+const githubVideoGallery = document.getElementById("githubVideoGallery");
 
-/* CHARGEMENT AUTOMATIQUE DES PHOTOS */
+/*
+   TRIER LES FICHIERS :
+   - Les noms contenant une date YYYYMMDD passent en premier.
+   - Les autres noms sont triés par ordre décroissant.
+*/
+
+function sortNewestFirst(a,b){
+    const dateA = a.name.match(/20\d{6}/);
+    const dateB = b.name.match(/20\d{6}/);
+
+    if(dateA && dateB){
+        return dateB[0].localeCompare(dateA[0]);
+    }
+
+    if(dateA && !dateB) return -1;
+    if(!dateA && dateB) return 1;
+
+    return b.name.localeCompare(a.name);
+}
+
+/*
+   ÉLIMINER LES DOUBLONS DE NOMS.
+   La comparaison ignore les espaces extérieurs et les majuscules.
+*/
+
+function removeDuplicateNames(files){
+    const seenNames = new Set();
+
+    return files.filter(file => {
+        const normalizedName = file.name.trim().toLowerCase();
+
+        if(seenNames.has(normalizedName)){
+            return false;
+        }
+
+        seenNames.add(normalizedName);
+        return true;
+    });
+}
+
+/* CHARGER LES PHOTOS DEPUIS GITHUB */
 
 async function loadGitHubPhotos(){
-
     try{
-
         const apiUrl =
-        `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`;
+            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_PHOTO_FOLDER}`;
 
-        const response = await fetch(apiUrl,{
-            cache:"no-store"
-        });
+        const response = await fetch(apiUrl,{cache:"no-store"});
 
         if(!response.ok){
-            throw new Error("Impossible de lire le dossier GitHub.");
+            throw new Error("Impossible de lire le dossier photos.");
         }
 
         const files = await response.json();
@@ -1088,55 +960,41 @@ async function loadGitHubPhotos(){
             throw new Error("Réponse GitHub invalide.");
         }
 
-        const imageFiles = files.filter(file => {
+        const imageFiles = files.filter(file =>
+            file.type === "file" &&
+            /\.(jpg|jpeg|png|webp|gif|avif)$/i.test(file.name)
+        );
 
-            const name = file.name.toLowerCase();
+        const uniqueImages = removeDuplicateNames(imageFiles);
+        uniqueImages.sort(sortNewestFirst);
 
-            return file.type === "file" &&
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(name);
+        githubPhotoGallery.innerHTML = "";
 
-        });
-
-        /* PHOTOS LES PLUS RECENTES EN PREMIER */
-
-        imageFiles.sort((a,b) => {
-
-            const dateA = a.name.match(/20\d{6}/);
-            const dateB = b.name.match(/20\d{6}/);
-
-            if(dateA && dateB){
-                return dateB[0].localeCompare(dateA[0]);
-            }
-
-            return b.name.localeCompare(a.name);
-
-        });
-
-        githubGallery.innerHTML = "";
-
-        if(imageFiles.length === 0){
-
-            githubGallery.innerHTML = `
+        if(uniqueImages.length === 0){
+            githubPhotoGallery.innerHTML = `
                 <div class="empty">
                     Aucune photo trouvée dans le dossier
                     <strong>photos</strong>.
+                    <br><br>
+                    Vérifiez que ce dossier contient des images JPG, JPEG, PNG, WEBP, GIF ou AVIF.
                 </div>
             `;
-
             return;
         }
 
-        imageFiles.forEach(file => {
-
+        uniqueImages.forEach(file => {
             const card = document.createElement("div");
             card.className = "gallery-item";
 
             const image = document.createElement("img");
-
             image.src = file.download_url;
             image.alt = "Réalisation i-SERVICES GROUPE";
             image.loading = "lazy";
             image.decoding = "async";
+
+            image.addEventListener("error",() => {
+                card.remove();
+            });
 
             const label = document.createElement("div");
             label.className = "gallery-label";
@@ -1144,30 +1002,103 @@ async function loadGitHubPhotos(){
 
             card.appendChild(image);
             card.appendChild(label);
-
-            githubGallery.appendChild(card);
-
+            githubPhotoGallery.appendChild(card);
         });
 
     }catch(error){
+        console.error("Erreur de galerie photo :",error);
 
-        console.error("Erreur de galerie :",error);
-
-        githubGallery.innerHTML = `
+        githubPhotoGallery.innerHTML = `
             <div class="empty">
                 Impossible de charger les photos pour le moment.
                 <br><br>
-                Vérifiez que le dossier
-                <strong>photos</strong>
-                est bien présent dans le dépôt GitHub.
+                Vérifiez que le dossier <strong>photos</strong>
+                existe à la racine du dépôt GitHub et contient vos images.
             </div>
         `;
-
     }
-
 }
 
+/* CHARGER LES VIDEOS DEPUIS LE DOSSIER GITHUB "videos" */
+
+async function loadGitHubVideos(){
+    try{
+        const apiUrl =
+            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_VIDEO_FOLDER}`;
+
+        const response = await fetch(apiUrl,{cache:"no-store"});
+
+        if(!response.ok){
+            throw new Error("Impossible de lire le dossier videos.");
+        }
+
+        const files = await response.json();
+
+        if(!Array.isArray(files)){
+            throw new Error("Réponse GitHub invalide.");
+        }
+
+        const videoFiles = files.filter(file =>
+            file.type === "file" &&
+            /\.(mp4|webm|ogg|mov|m4v)$/i.test(file.name)
+        );
+
+        const uniqueVideos = removeDuplicateNames(videoFiles);
+        uniqueVideos.sort(sortNewestFirst);
+
+        githubVideoGallery.innerHTML = "";
+
+        if(uniqueVideos.length === 0){
+            githubVideoGallery.innerHTML = `
+                <div class="empty">
+                    Aucune vidéo trouvée dans le dossier
+                    <strong>videos</strong>.
+                    <br><br>
+                    Ajoutez vos vidéos dans ce dossier.
+                    Le format MP4 est recommandé.
+                </div>
+            `;
+            return;
+        }
+
+        uniqueVideos.forEach(file => {
+            const card = document.createElement("div");
+            card.className = "gallery-item";
+
+            const video = document.createElement("video");
+            video.src = file.download_url;
+            video.controls = true;
+            video.preload = "metadata";
+            video.playsInline = true;
+            video.setAttribute("aria-label","Vidéo i-SERVICES GROUPE");
+
+            const label = document.createElement("div");
+            label.className = "gallery-label";
+            label.textContent = file.name;
+
+            card.appendChild(video);
+            card.appendChild(label);
+            githubVideoGallery.appendChild(card);
+        });
+
+    }catch(error){
+        console.error("Erreur de galerie vidéo :",error);
+
+        githubVideoGallery.innerHTML = `
+            <div class="empty">
+                Impossible de charger les vidéos pour le moment.
+                <br><br>
+                Vérifiez que le dossier <strong>videos</strong>
+                existe à la racine du dépôt GitHub et contient des vidéos compatibles.
+            </div>
+        `;
+    }
+}
+
+/* LANCEMENT DES DEUX GALERIES */
+
 loadGitHubPhotos();
+loadGitHubVideos();
 </script>
 
 </body>
