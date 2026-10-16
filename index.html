@@ -377,7 +377,7 @@ section{
     box-shadow:8px 8px 0 var(--black);
 }
 
-/* IMAGE OU VIDEO ET FILIGRANE */
+/* CONTENEUR DES PHOTOS ET VIDEOS */
 
 .media-wrap{
     position:relative;
@@ -388,39 +388,60 @@ section{
     isolation:isolate;
 }
 
-.media-wrap img,
-.media-wrap video{
+/*
+   IMPORTANT :
+   On applique les dimensions aux médias principaux seulement.
+   Le filigrane est exclu pour éviter qu'il soit étiré ou coupé.
+*/
+
+.media-wrap > img:not(.media-watermark),
+.media-wrap > video{
     width:100%;
     height:100%;
     display:block;
-    object-fit:cover;
     background:#111;
     -webkit-user-drag:none;
     user-select:none;
     -webkit-user-select:none;
 }
 
-.media-wrap video{
-    object-fit:contain;
+.media-wrap > img:not(.media-watermark){
+    object-fit:cover;
 }
 
-/* LOGO PNG EN FILIGRANE */
+.media-wrap > video{
+    object-fit:contain;
+    cursor:pointer;
+}
+
+/* FILIGRANE : LOGO ENTIER AU FORMAT STICKER */
 
 .media-watermark{
     position:absolute;
-    left:50%;
-    top:58%;
-    transform:translate(-50%,-50%);
-    z-index:5;
 
-    width:clamp(75px,25%,135px);
-    height:auto;
-    max-height:100px;
+    /* Position discrète dans le coin supérieur gauche */
+    top:10px;
+    left:10px;
+
+    /* Taille fixe pour ne pas déformer le logo */
+    width:58px;
+    height:58px;
+
+    max-width:58px;
+    max-height:58px;
+
+    /* Conserve les proportions du logo original */
     object-fit:contain;
+    object-position:center;
 
-    opacity:.20;
-    filter:grayscale(100%);
-    mix-blend-mode:screen;
+    display:block;
+
+    z-index:5;
+    opacity:.30;
+
+    /* Le logo reste intact, sans filtre ni déformation */
+    filter:none;
+    mix-blend-mode:normal;
 
     pointer-events:none;
     user-select:none;
@@ -432,6 +453,16 @@ section{
 .media-watermark,
 .media-watermark *{
     pointer-events:none;
+}
+
+/* MASQUER LE BOUTON PLEIN ECRAN SI LE NAVIGATEUR LE PERMET */
+
+.media-wrap video::-webkit-media-controls-fullscreen-button{
+    display:none !important;
+}
+
+.media-wrap video::-webkit-media-controls-picture-in-picture-button{
+    display:none !important;
 }
 
 /* TITRES DES MEDIAS */
@@ -615,17 +646,33 @@ footer address{
 
 @media(max-width:700px){
     header{padding:9px 7px;}
-    .brand-logo{height:36px;max-width:85px;}
-    nav{justify-content:flex-start;}
-    nav a{font-size:11px;padding:8px 11px;}
+
+    .brand-logo{
+        height:36px;
+        max-width:85px;
+    }
+
+    nav{
+        justify-content:flex-start;
+    }
+
+    nav a{
+        font-size:11px;
+        padding:8px 11px;
+    }
 
     .hero{
         min-height:610px;
         padding:60px 17px;
     }
 
-    .hero h1{font-size:31px;}
-    .hero p{font-size:16px;}
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
 
     .hero-actions{
         flex-direction:column;
@@ -637,20 +684,35 @@ footer address{
         max-width:340px;
     }
 
-    section{padding:60px 15px;}
-    .section-title h2{font-size:28px;}
-    .about-box{padding:25px 20px;}
+    section{
+        padding:60px 15px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .about-box{
+        padding:25px 20px;
+    }
 
     .btn{
         width:calc(100% - 10px);
         max-width:350px;
     }
 
-    .media-wrap{height:230px;}
+    .media-wrap{
+        height:230px;
+    }
 
     .media-watermark{
-        width:clamp(65px,24%,105px);
-        opacity:.20;
+        top:8px;
+        left:8px;
+        width:52px;
+        height:52px;
+        max-width:52px;
+        max-height:52px;
+        opacity:.30;
     }
 
     .whatsapp-floating{
@@ -662,7 +724,9 @@ footer address{
 }
 
 @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
+    html{
+        scroll-behavior:auto;
+    }
 
     .hero-content,
     .whatsapp-floating{
@@ -968,7 +1032,7 @@ footer address{
     </div>
 </section>
 
-<!-- PIED DE PAGE : PETIT LOGO AVANT LE COPYRIGHT -->
+<!-- PIED DE PAGE -->
 
 <footer>
     <address>
@@ -1015,6 +1079,7 @@ const GITHUB_PHOTO_FOLDER = "photos";
 const GITHUB_VIDEO_FOLDER = "videos";
 
 /* CHEMIN DU LOGO ORIGINAL */
+
 const LOGO_PATH =
     "./photos/file_000000009d8071f4847879d30c769d33.png";
 
@@ -1060,7 +1125,7 @@ function removeDuplicateNames(files){
 }
 
 
-/* CONTENEUR MEDIA AVEC LOGO PNG TRANSPARENT */
+/* CONTENEUR MEDIA AVEC FILIGRANE */
 
 function createMediaWrapper(media){
     const wrapper = document.createElement("div");
@@ -1070,13 +1135,13 @@ function createMediaWrapper(media){
     media.setAttribute("draggable","false");
 
     const watermark = document.createElement("img");
+
     watermark.className = "media-watermark";
     watermark.src = LOGO_PATH;
     watermark.alt = "";
     watermark.setAttribute("aria-hidden","true");
     watermark.draggable = false;
 
-    /* Si le logo n'est pas disponible, on retire le filigrane */
     watermark.addEventListener("error",() => {
         watermark.remove();
     });
@@ -1133,13 +1198,16 @@ async function loadGitHubPhotos(){
             card.className = "gallery-item";
 
             const image = document.createElement("img");
+
             image.src = file.download_url;
             image.alt = "Réalisation i-SERVICES GROUPE";
             image.loading = "lazy";
             image.decoding = "async";
             image.draggable = false;
 
-            image.addEventListener("error",() => card.remove());
+            image.addEventListener("error",() => {
+                card.remove();
+            });
 
             const mediaWrapper = createMediaWrapper(image);
 
@@ -1213,12 +1281,21 @@ async function loadGitHubVideos(){
             card.className = "gallery-item";
 
             const video = document.createElement("video");
+
             video.src = file.download_url;
+
+            /*
+              Les commandes de lecture restent disponibles.
+              nofullscreen demande au navigateur de masquer
+              l'option plein écran lorsqu'il prend cette option en charge.
+            */
+
             video.controls = true;
             video.preload = "metadata";
             video.playsInline = true;
             video.draggable = false;
 
+            video.setAttribute("playsinline","");
             video.setAttribute(
                 "aria-label",
                 "Vidéo i-SERVICES GROUPE"
@@ -1226,10 +1303,11 @@ async function loadGitHubVideos(){
 
             video.setAttribute(
                 "controlsList",
-                "nodownload noremoteplayback"
+                "nofullscreen nodownload noremoteplayback"
             );
 
             video.setAttribute("disablePictureInPicture","");
+            video.setAttribute("disableRemotePlayback","");
 
             const mediaWrapper = createMediaWrapper(video);
 
