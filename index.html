@@ -388,12 +388,6 @@ section{
     isolation:isolate;
 }
 
-/*
-   IMPORTANT :
-   On applique les dimensions aux médias principaux seulement.
-   Le filigrane est exclu pour éviter qu'il soit étiré ou coupé.
-*/
-
 .media-wrap > img:not(.media-watermark),
 .media-wrap > video{
     width:100%;
@@ -414,35 +408,23 @@ section{
     cursor:pointer;
 }
 
-/* FILIGRANE : LOGO ENTIER AU FORMAT STICKER */
+/* FILIGRANE ORIGINAL : CONSERVE SA POSITION INITIALE */
 
 .media-watermark{
     position:absolute;
-
-    /* Position discrète dans le coin supérieur gauche */
     top:10px;
     left:10px;
-
-    /* Taille fixe pour ne pas déformer le logo */
     width:58px;
     height:58px;
-
     max-width:58px;
     max-height:58px;
-
-    /* Conserve les proportions du logo original */
     object-fit:contain;
     object-position:center;
-
     display:block;
-
     z-index:5;
     opacity:.30;
-
-    /* Le logo reste intact, sans filtre ni déformation */
     filter:none;
     mix-blend-mode:normal;
-
     pointer-events:none;
     user-select:none;
     -webkit-user-select:none;
@@ -474,6 +456,12 @@ section{
     font-size:12px;
     font-weight:bold;
     overflow-wrap:anywhere;
+}
+
+/* MASQUER LE NOM REEL DES FICHIERS VIDEO */
+
+#githubVideoGallery .gallery-label{
+    display:none !important;
 }
 
 .github-badge{
@@ -1235,7 +1223,7 @@ async function loadGitHubPhotos(){
 }
 
 
-/* CHARGEMENT DES VIDEOS */
+/* CHARGEMENT DES VIDEOS : NOMS DES FICHIERS MASQUES */
 
 async function loadGitHubVideos(){
     try{
@@ -1283,13 +1271,6 @@ async function loadGitHubVideos(){
             const video = document.createElement("video");
 
             video.src = file.download_url;
-
-            /*
-              Les commandes de lecture restent disponibles.
-              nofullscreen demande au navigateur de masquer
-              l'option plein écran lorsqu'il prend cette option en charge.
-            */
-
             video.controls = true;
             video.preload = "metadata";
             video.playsInline = true;
@@ -1311,9 +1292,14 @@ async function loadGitHubVideos(){
 
             const mediaWrapper = createMediaWrapper(video);
 
+            /*
+              Le nom réel du fichier n'est jamais affiché.
+              Le titre sous la vidéo est remplacé par le nom du groupe.
+            */
+
             const label = document.createElement("div");
             label.className = "gallery-label";
-            label.textContent = file.name;
+            label.textContent = "i-SERVICES GROUPE";
 
             card.appendChild(mediaWrapper);
             card.appendChild(label);
